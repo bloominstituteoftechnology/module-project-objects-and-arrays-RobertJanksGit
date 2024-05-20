@@ -26,13 +26,17 @@
       // 🧠 The function buildPeter builds an object of a certain shape and returns it.
       // 🧠 Example of usage:
       // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
-      function buildPeter() {}
+      function buildPeter() {
+        return { firstName: "Peter", lastName: "Pan", age: 12 };
+      }
 
       // 👉 CHALLENGE 2
       // 🧠 The function buildUser takes three arguments and uses them to build an object and return it.
       // 🧠 Example of usage:
       // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
-      function buildUser(firstName, lastName, age) {}
+      function buildUser(firstName, lastName, age) {
+        return { firstName, lastName, age };
+      }
 
       // 👉 CHALLENGE 3
       // 🧠 The function deletePrice takes an object as its argument and deletes its "price" property if it exists.
@@ -42,7 +46,14 @@
       // 🧠 Examples of usage:
       // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
       // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-      function deletePrice() {}
+      function deletePrice(itemObj) {
+        if (itemObj.price !== undefined) {
+          delete itemObj.price;
+        } else {
+          itemObj.priceless = true;
+        }
+        return itemObj;
+      }
 
       // 👉 CHALLENGE 4
       // 🧠 The function evenList takes an array as its argument and returns true if the array has an even number of elements, false otherwise.
@@ -50,7 +61,13 @@
       // 🧠 Examples of usage:
       // evenList(['a']) // should return false
       // evenList(['a', 'b']) // should return true
-      function evenList(arr) {}
+      function evenList(arr) {
+        if (arr.length % 2 === 0) {
+          return true;
+        } else {
+          return false;
+        }
+      }
 
       // 👉 CHALLENGE 5
       // 🧠 The function firstOrLast takes an array as the first argument, and a Boolean as the second.
@@ -58,7 +75,13 @@
       // 🧠 Examples of usage:
       // firstOrLast(['a', 'b'], true) // should return 'a'
       // firstOrLast(['a', 'b'], false) // should return 'b'
-      function firstOrLast() {}
+      function firstOrLast(arr, boo) {
+        if (boo) {
+          return arr.at(0);
+        } else {
+          return arr.at(-1);
+        }
+      }
 
       // 👉 CHALLENGE 6
       // 🧠 The function pushElement takes an array as the first argument, and any value we wish as the second.
@@ -66,7 +89,10 @@
       // 🧠 Examples of usage:
       // pushElement([], 1) // should return [1]
       // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-      function pushElement() {}
+      function pushElement(arr, anyValueWeWish) {
+        arr.push(anyValueWeWish);
+        return arr;
+      }
 
       // 👉 CHALLENGE 7
       // 🧠 The function stripX takes a string as its argument.
@@ -80,7 +106,18 @@
       // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
       // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
       // 🧠 Do not forget to return your rejoined string!
-      function stripX() {}
+      function stripX(str) {
+        let noMoreXArr = [];
+        let splitString = str.split("");
+        for (let index in splitString) {
+          if (splitString[index] !== "x") {
+            let char = splitString[index];
+            noMoreXArr.push(char);
+          }
+        }
+        console.log(noMoreXArr);
+        return noMoreXArr.join("");
+      }
 
       // 👉 CHALLENGE 8
       // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
@@ -91,7 +128,16 @@
       // ❗ Important Notes:
       // 🧠 Try to solve this problem without looking at how you solved the previous one.
       // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-      function stripChar() {}
+      function stripChar(str, char) {
+        let arrayWithOutChar = [];
+        const stringArr = str.split("");
+        for (let index in stringArr) {
+          if (stringArr[index] !== char) {
+            arrayWithOutChar.push(stringArr[index]);
+          }
+        }
+        return arrayWithOutChar.join("");
+      }
 
       // 👉 CHALLENGE 9
       // 🧠 The function getProps takes an object as its argument.
@@ -102,7 +148,15 @@
       // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
       // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
       // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-      function getProps() {}
+      function getProps(obj) {
+        let propNames = [];
+        for (let key in obj) {
+          if (key !== "age" && key !== "married") {
+            propNames.push(key);
+          }
+        }
+        return propNames;
+      }
 
       // 🧪 TESTS, do not work below this line
       // 🧪 TESTS, do not work below this line
